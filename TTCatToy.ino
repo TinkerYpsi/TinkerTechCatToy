@@ -29,6 +29,9 @@ const int LED = 6;
 const int PAN_POT = A0;
 const int TILT_POT = A1;
 const int LASER = 5;
+// Servo pan and tilt MUST be 9 and 10 because of Adafruit_TiCoServo library limitations
+const int PAN_PIN = 9;
+const int TILT_PIN = 10;
 
 // Servo range limits in degrees
 // These prevent the servos from moving to useless physical positions
@@ -65,9 +68,9 @@ void setup() {
   Serial.begin(115200);
 
   // Setup servos
-  pan.attach(9);
-  tilt.attach(10);
-
+  pan.attach(PAN_PIN);
+  tilt.attach(TILT_PIN);
+  
   // Setup RGB LEDs
   strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)
   strip.show();            // Turn OFF all pixels ASAP
