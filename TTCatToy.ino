@@ -14,7 +14,6 @@
 // Constants for LEDs
 #define RGB_LED_DATA_PIN  4  // Arduino data pin
 #define LED_COUNT         16 // Total number of LEDs
-#define BRIGHTNESS        20 // Starting overall brightness
 
 // Possible state machine states
 typedef enum _mode {
@@ -49,7 +48,7 @@ int tilt_pos = 0;
 int pan_pos = 0;
 
 // RGB LED strand object
-Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip(LED_COUNT, RGB_LED_DATA_PIN, NEO_GRB + NEO_KHZ800);
 
 // State machine state
 MODE run_mode = MODE_NORMAL;
